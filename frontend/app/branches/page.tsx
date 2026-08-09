@@ -29,7 +29,7 @@ export default function BranchesPage() {
         best = b.id;
       }
     }
-    // Default popular to Bole when ties / empty
+    // Default popular to Gerji when ties / empty
     return max <= 0 ? "b-bole" : best;
   }, [orders, branches]);
 

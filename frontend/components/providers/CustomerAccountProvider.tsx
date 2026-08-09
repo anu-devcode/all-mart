@@ -108,7 +108,7 @@ export function CustomerAccountProvider({ children }: { children: React.ReactNod
           id,
           label: address.label.trim() || "Home",
           line1: address.line1.trim(),
-          subcity: address.subcity.trim() || "Bole",
+          subcity: address.subcity.trim() || "Gerji",
           city: address.city.trim() || "Addis Ababa",
           phone: address.phone?.trim(),
           lat: address.lat || ADDIS_DEFAULT.lat,

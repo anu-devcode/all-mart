@@ -45,7 +45,11 @@ export type CustomerAccountState = {
 export const ADDIS_DEFAULT = { lat: 9.03, lng: 38.74 };
 
 export const ADDIS_SUBCITIES = [
+  "Gerji",
+  "Jemo",
+  "Ayat",
   "Bole",
+  "Bisrate Gabriel",
   "Kirkos",
   "Yeka",
   "Arada",

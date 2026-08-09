@@ -205,7 +205,7 @@ export function HomePage() {
             </div>
           </Reveal>
 
-          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid grid-cols-2 gap-2.5 sm:gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {featured.map((p, idx) => (
               <Reveal key={p.id} delay={(Math.min(idx % 4, 3) as 0 | 1 | 2 | 3)} variant="scale">
                 <ProductCard product={p} />

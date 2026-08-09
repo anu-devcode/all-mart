@@ -100,7 +100,7 @@ function ShopInner() {
                 Showing <span className="font-bold text-zinc-900">{filtered.length}</span> items
               </div>
             </Reveal>
-            <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-4 grid grid-cols-2 gap-2.5 sm:gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {filtered.map((p, idx) => (
                 <Reveal key={p.id} delay={(Math.min(idx % 3, 2) as 0 | 1 | 2)}>
                   <ProductCard product={p} />

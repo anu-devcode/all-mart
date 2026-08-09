@@ -9,7 +9,7 @@ import { ADDIS_DEFAULT, ADDIS_SUBCITIES, type SavedAddress } from "@/lib/custome
 const emptyForm = {
   label: "Home",
   line1: "",
-  subcity: "Bole",
+  subcity: "Gerji",
   city: "Addis Ababa",
   phone: "",
   lat: ADDIS_DEFAULT.lat,
@@ -209,7 +209,7 @@ export function AddressPanel({ active }: { active: boolean }) {
                   value={form.line1}
                   onChange={(e) => setForm((f) => ({ ...f, line1: e.target.value }))}
                   className={inputClass}
-                  placeholder="Near Bole Medhanealem…"
+                  placeholder="Near Gerji Mebrat Hayel…"
                   required
                 />
               </Field>

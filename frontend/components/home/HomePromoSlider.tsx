@@ -30,8 +30,8 @@ const slides: PromoSlide[] = [
   {
     id: "branch-hours",
     eyebrow: "Company update",
-    title: "Extended weekend hours in Bole",
-    body: "All Mart Bole now opens until 9 PM on Saturdays for easier family shopping.",
+    title: "Extended weekend hours in Gerji",
+    body: "All Mart Gerji now opens until 9 PM on Saturdays for easier family shopping.",
     cta: "View branches",
     href: "/branches",
     image: brandAssets.branch,

@@ -24,10 +24,10 @@ const values = [
 ];
 
 const milestones = [
-  { label: "Branches", value: "3" },
+  { label: "Branches", value: "3+" },
   { label: "City", value: "Addis" },
   { label: "Pickup", value: "~15m" },
-  { label: "Currency", value: "ETB" },
+  { label: "Opens", value: "7–8 AM" },
 ];
 
 export default function AboutPage() {
@@ -79,7 +79,7 @@ export default function AboutPage() {
                 checkout for free pickup.
               </p>
               <p className="mt-3 text-sm leading-7 text-zinc-600 md:text-[15px]">
-                From Bole to Kirkos to Yeka, every cart is locked to one location so prices and shelves stay accurate.
+                From Gerji to Jemo to Ayat, every cart is locked to one location so prices and shelves stay accurate.
               </p>
               <Link
                 href="/branches"

@@ -19,7 +19,7 @@ const steps: Step[] = [
     id: "branch",
     step: "01",
     title: "Choose a branch",
-    body: "Pick Bole, Kirkos, or Yeka so stock matches the store you’ll visit.",
+    body: "Pick Gerji, Jemo, or Ayat so stock matches the store you’ll visit.",
     hint: "Takes ~10 seconds",
     href: "/branches",
     cta: "Select branch",
@@ -95,7 +95,7 @@ function StepCard({
       onMouseEnter={onActivate}
       onFocusCapture={onActivate}
       className={[
-        "group relative rounded-2xl border p-4 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
+        "group relative h-full min-w-0 rounded-2xl border p-4 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] sm:p-5",
         light
           ? active
             ? "border-[color:var(--allmart-orange)]/50 bg-orange-50/60 shadow-[0_12px_32px_rgba(255,106,0,0.12)]"
@@ -105,11 +105,11 @@ function StepCard({
             : "border-white/12 bg-white/8 hover:border-white/25 hover:bg-white/12",
       ].join(" ")}
     >
-      <button type="button" onClick={onActivate} className="w-full text-left" aria-current={active ? "step" : undefined}>
-        <div className="flex items-center gap-3">
+      <button type="button" onClick={onActivate} className="w-full min-w-0 text-left" aria-current={active ? "step" : undefined}>
+        <div className="flex min-w-0 items-center gap-3">
           <span
             className={[
-              "relative z-[1] flex h-11 w-11 items-center justify-center rounded-full text-sm font-extrabold transition-all duration-500",
+              "relative z-[1] flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-sm font-extrabold transition-all duration-500",
               active
                 ? "bg-[color:var(--allmart-orange)] text-white shadow-[0_0_0_6px_rgba(255,106,0,0.2)]"
                 : light
@@ -119,7 +119,7 @@ function StepCard({
           >
             {active ? step.icon : step.step}
           </span>
-          <div className="min-w-0">
+          <div className="min-w-0 flex-1">
             <div
               className={[
                 "text-[10px] font-bold uppercase tracking-[0.18em]",
@@ -130,7 +130,7 @@ function StepCard({
             </div>
             <div
               id={`journey-step-${step.id}`}
-              className={["truncate text-sm font-extrabold", light ? "text-zinc-900" : "text-white"].join(" ")}
+              className={["text-sm font-extrabold leading-snug", light ? "text-zinc-900" : "text-white"].join(" ")}
             >
               {step.title}
             </div>
@@ -140,14 +140,14 @@ function StepCard({
         <p className={["mt-3 text-xs leading-5", light ? "text-zinc-600" : "text-white/70"].join(" ")}>{step.body}</p>
       </button>
 
-      <div className="mt-3 flex items-center justify-between gap-2">
+      <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
         <span className={["text-[10px] font-semibold", light ? "text-zinc-400" : "text-white/45"].join(" ")}>
           {step.hint}
         </span>
         <Link
           href={step.href}
           className={[
-            "inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-[11px] font-extrabold transition",
+            "inline-flex shrink-0 items-center gap-1 rounded-full px-3 py-1.5 text-[11px] font-extrabold transition",
             active
               ? "bg-[color:var(--allmart-orange)] text-white"
               : light
@@ -200,7 +200,7 @@ export function HeroJourney({ tone = "light" }: { tone?: "light" | "dark" }) {
       }}
     >
       <div className="mb-5 flex flex-wrap items-end justify-between gap-2">
-        <div>
+        <div className="min-w-0">
           <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-[color:var(--allmart-orange)]">
             How it works
           </p>
@@ -208,7 +208,7 @@ export function HeroJourney({ tone = "light" }: { tone?: "light" | "dark" }) {
             Three steps from branch to pickup
           </p>
         </div>
-        <div className="flex items-center gap-1.5" aria-hidden>
+        <div className="flex shrink-0 items-center gap-1.5" aria-hidden>
           {steps.map((s, i) => (
             <span
               key={s.id}
@@ -225,6 +225,7 @@ export function HeroJourney({ tone = "light" }: { tone?: "light" | "dark" }) {
         </div>
       </div>
 
+      {/* Desktop: 3-column with connector */}
       <div className="relative hidden md:block">
         <div
           className={[
@@ -241,30 +242,30 @@ export function HeroJourney({ tone = "light" }: { tone?: "light" | "dark" }) {
 
         <ol className="grid grid-cols-3 gap-4">
           {steps.map((s, i) => (
-            <li key={s.id}>
+            <li key={s.id} className="min-w-0">
               <StepCard step={s} active={i === active} onActivate={() => setActive(i)} light={light} />
             </li>
           ))}
         </ol>
       </div>
 
-      <div className="min-w-0 max-w-full overflow-x-clip md:hidden">
-        <div
-          className="flex snap-x snap-mandatory gap-3 overflow-x-auto overscroll-x-contain pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-          role="list"
-        >
+      {/* Mobile: same cards stacked full-width (no horizontal overflow) */}
+      <div className="md:hidden">
+        <ol className="flex flex-col gap-3">
           {steps.map((s, i) => (
-            <div key={s.id} role="listitem" className="w-[min(85%,20rem)] max-w-full shrink-0 snap-center">
+            <li key={s.id} className="min-w-0">
               <StepCard step={s} active={i === active} onActivate={() => setActive(i)} light={light} />
-            </div>
+            </li>
           ))}
-        </div>
-        <div className="mt-2 flex justify-center gap-1.5">
+        </ol>
+
+        <div className="mt-4 flex justify-center gap-1.5">
           {steps.map((s, i) => (
             <button
               key={s.id}
               type="button"
               aria-label={`Go to step ${i + 1}`}
+              aria-current={i === active ? "true" : undefined}
               onClick={() => setActive(i)}
               className={[
                 "h-1.5 rounded-full transition-all",

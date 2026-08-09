@@ -3,7 +3,9 @@
 import Link from "next/link";
 import React, { useMemo } from "react";
 import { BrandLockup } from "@/components/brand/BrandLockup";
+import { SocialIconLinks } from "@/components/brand/SocialIconLinks";
 import { useAuth } from "@/components/providers/AuthProvider";
+import { companyContact } from "@/lib/companyContact";
 
 const exploreLinks = [
   { href: "/shop", label: "Shop" },
@@ -38,12 +40,11 @@ export function PublicFooter() {
 
       <div className="relative mx-auto max-w-6xl px-4 py-14 md:py-16">
         <div className="rounded-[1.75rem] border border-white/10 bg-black/35 p-6 backdrop-blur-md md:p-10">
-          <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-[1.35fr_0.7fr_0.7fr_1fr]">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-[1.35fr_0.7fr_0.7fr_1.1fr]">
             <div>
               <BrandLockup tone="light" size="lg" showTagline={false} href="/" />
-              <p className="mt-4 max-w-sm text-sm leading-7 text-white/65">
-                Fresh groceries across Addis Ababa — browse by branch, check live stock, and simulate checkout.
-              </p>
+              <p className="mt-4 max-w-sm text-sm leading-7 text-white/65">{companyContact.tagline}</p>
+              <SocialIconLinks className="mt-5" tone="dark" />
               <Link
                 href="/shop"
                 className="btn-float mt-6 inline-flex rounded-full bg-[color:var(--allmart-orange)] px-5 py-2.5 text-sm font-extrabold text-white"
@@ -80,17 +81,46 @@ export function PublicFooter() {
 
             <div>
               <div className="text-xs font-bold uppercase tracking-[0.22em] text-white/40">Contact</div>
-              <div className="mt-4 space-y-2 text-sm text-white/70">
-                <div className="font-semibold text-white">0116-295876</div>
-                <div>ethio.allmart@gmail.com</div>
-                <div>Addis Ababa, Ethiopia</div>
+              <div className="mt-4 space-y-2.5 text-sm text-white/70">
+                <a
+                  href={`tel:${companyContact.phoneMobileTel}`}
+                  className="block font-semibold text-white transition hover:text-[color:var(--allmart-orange-soft)]"
+                >
+                  {companyContact.phoneMobile}
+                </a>
+                <a
+                  href={`tel:${companyContact.phoneLandlineTel}`}
+                  className="block text-white/70 transition hover:text-white"
+                >
+                  {companyContact.phoneLandline}
+                  <span className="ml-1.5 text-[10px] font-semibold uppercase tracking-wide text-white/35">Gerji</span>
+                </a>
+                <a
+                  href={`mailto:${companyContact.email}`}
+                  className="block break-all transition hover:text-white"
+                >
+                  {companyContact.email}
+                </a>
+                <p className="leading-6 text-white/55">{companyContact.hqAddress}</p>
+                <a
+                  href={companyContact.website}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="inline-flex text-xs font-bold text-[color:var(--allmart-orange-soft)] hover:underline"
+                >
+                  {companyContact.websiteLabel} →
+                </a>
               </div>
             </div>
           </div>
 
           <div className="mt-10 flex flex-col gap-3 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
-            <div className="text-xs text-white/40">© {new Date().getFullYear()} All Mart. All rights reserved.</div>
-            <div className="text-xs font-semibold tracking-wide text-white/35">Digital Retail · Addis Ababa · ETB</div>
+            <div className="text-xs text-white/40">
+              © {new Date().getFullYear()} {companyContact.brandName}. All rights reserved.
+            </div>
+            <div className="text-xs font-semibold tracking-wide text-white/35">
+              Gerji · Jemo · Ayat · Addis Ababa · ETB
+            </div>
           </div>
         </div>
       </div>

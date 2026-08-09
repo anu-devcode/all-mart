@@ -8,6 +8,8 @@ import { PageHeroBackground, brandAssets } from "@/components/public/PageHeroBac
 import { useAllMart } from "@/components/providers/AllMartProvider";
 import { osmEmbedSrc, osmOpenUrl } from "@/lib/customerAccount";
 import { formatBranchHours } from "@/lib/branchHours";
+import { companyContact } from "@/lib/companyContact";
+import { SocialIconLinks } from "@/components/brand/SocialIconLinks";
 
 const topics = ["General question", "Order / pickup help", "Branch feedback", "Partnership", "Other"] as const;
 
@@ -67,37 +69,46 @@ export default function ContactPage() {
             We’re here to help
           </h1>
           <p className="mt-3 max-w-xl text-sm leading-7 text-white/80 sm:text-base">
-            Questions about pickup, stock, or branches? Send a message — this form is simulated for the prototype.
+            Reach All Mart at Gerji Mebrat Hayel or any pickup branch — call, email, or send a message below.
           </p>
         </div>
       </PageHeroBackground>
 
       {/* Quick contacts */}
       <SectionShell className="section-panel surface-panel px-4 py-10 md:py-12">
-        <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-3 sm:grid-cols-3">
+        <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {[
             {
               label: "Call",
-              value: "0116-295876",
-              href: "tel:0116295876",
-              hint: "Mon–Sun during branch hours",
+              value: companyContact.phoneMobile,
+              href: `tel:${companyContact.phoneMobileTel}`,
+              hint: `Also Gerji: ${companyContact.phoneLandline}`,
             },
             {
               label: "Email",
-              value: "ethio.allmart@gmail.com",
-              href: "mailto:ethio.allmart@gmail.com",
+              value: companyContact.email,
+              href: `mailto:${companyContact.email}`,
               hint: "We reply within one business day",
             },
             {
-              label: "Visit",
-              value: "Addis Ababa, Ethiopia",
+              label: "Visit HQ",
+              value: "Gerji Mebrat Hayel",
               href: "/branches",
-              hint: `${branches.length} pickup branches`,
+              hint: companyContact.city,
+            },
+            {
+              label: "Website",
+              value: companyContact.websiteLabel,
+              href: companyContact.website,
+              hint: companyContact.hoursNote,
+              external: true,
             },
           ].map((c, idx) => (
-            <Reveal key={c.label} delay={(Math.min(idx, 2) as 0 | 1 | 2)} variant="up">
-              <Link
+            <Reveal key={c.label} delay={(Math.min(idx, 3) as 0 | 1 | 2 | 3)} variant="up">
+              <a
                 href={c.href}
+                target={"external" in c && c.external ? "_blank" : undefined}
+                rel={"external" in c && c.external ? "noreferrer noopener" : undefined}
                 className="block h-full rounded-2xl border border-zinc-200/80 bg-white p-5 shadow-[var(--shadow-float)] transition hover:-translate-y-0.5 hover:border-[color:var(--allmart-orange)]/35"
               >
                 <div className="text-[11px] font-bold uppercase tracking-wide text-[color:var(--allmart-orange)]">
@@ -105,9 +116,17 @@ export default function ContactPage() {
                 </div>
                 <div className="mt-2 text-sm font-extrabold text-zinc-900 break-all">{c.value}</div>
                 <p className="mt-1 text-xs text-zinc-500">{c.hint}</p>
-              </Link>
+              </a>
             </Reveal>
           ))}
+        </div>
+
+        <div className="mx-auto mt-6 flex w-full max-w-6xl flex-col items-start justify-between gap-4 rounded-2xl border border-zinc-200/80 bg-white px-5 py-4 shadow-sm sm:flex-row sm:items-center">
+          <div>
+            <div className="text-[11px] font-bold uppercase tracking-wide text-zinc-400">Follow All Mart</div>
+            <p className="mt-1 text-sm text-zinc-600">Facebook · TikTok @allmartsupermarket1 · Website</p>
+          </div>
+          <SocialIconLinks tone="light" />
         </div>
       </SectionShell>
 
