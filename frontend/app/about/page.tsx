@@ -24,7 +24,7 @@ const values = [
 ];
 
 const milestones = [
-  { label: "Branches", value: "3+" },
+  { label: "Branches", value: "4" },
   { label: "City", value: "Addis" },
   { label: "Pickup", value: "~15m" },
   { label: "Opens", value: "7–8 AM" },
@@ -79,7 +79,7 @@ export default function AboutPage() {
                 checkout for free pickup.
               </p>
               <p className="mt-3 text-sm leading-7 text-zinc-600 md:text-[15px]">
-                From Gerji to Jemo to Ayat, every cart is locked to one location so prices and shelves stay accurate.
+                From Gerji to Jemo, Ayat, and Bisrate Gabriel — every cart is locked to one location so prices and shelves stay accurate.
               </p>
               <Link
                 href="/branches"
@@ -153,9 +153,9 @@ export default function AboutPage() {
               </Link>
             </div>
           </Reveal>
-          <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
+          <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {branches.map((b, idx) => (
-              <Reveal key={b.id} delay={(Math.min(idx, 2) as 0 | 1 | 2)} variant="up">
+              <Reveal key={b.id} delay={(Math.min(idx, 3) as 0 | 1 | 2 | 3)} variant="up">
                 <div className="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
                   <div className="text-sm font-extrabold text-zinc-900">{b.name.replace("All Mart ", "")}</div>
                   <p className="mt-1 text-xs leading-5 text-zinc-500">{b.address}</p>

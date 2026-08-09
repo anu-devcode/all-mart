@@ -119,7 +119,7 @@ export function PublicFooter() {
               © {new Date().getFullYear()} {companyContact.brandName}. All rights reserved.
             </div>
             <div className="text-xs font-semibold tracking-wide text-white/35">
-              Gerji · Jemo · Ayat · Addis Ababa · ETB
+              Gerji · Jemo · Ayat · Bisrate Gabriel · Addis Ababa · ETB
             </div>
           </div>
         </div>

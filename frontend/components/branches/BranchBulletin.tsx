@@ -43,7 +43,7 @@ const slides: BulletinSlide[] = [
     id: "fresh",
     kicker: "Fresh desk",
     title: "Produce restocked daily",
-    body: "Morning deliveries across Gerji, Jemo, and Ayat. Check live availability before you reserve.",
+    body: "Morning deliveries across Gerji, Jemo, Ayat, and Bisrate Gabriel. Check live availability before you reserve.",
     cta: "Shop fresh",
     href: "/shop?category=Fresh%20%26%20Vegetables",
     image: brandAssets.produceMarket,

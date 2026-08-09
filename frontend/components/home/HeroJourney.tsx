@@ -19,7 +19,7 @@ const steps: Step[] = [
     id: "branch",
     step: "01",
     title: "Choose a branch",
-    body: "Pick Gerji, Jemo, or Ayat so stock matches the store you’ll visit.",
+    body: "Pick Gerji, Jemo, Ayat, or Bisrate Gabriel so stock matches the store you’ll visit.",
     hint: "Takes ~10 seconds",
     href: "/branches",
     cta: "Select branch",

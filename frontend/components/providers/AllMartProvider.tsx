@@ -81,7 +81,7 @@ type AllMartContextValue = {
   deleteBranch: (branchId: BranchId) => void;
 };
 
-const STORAGE_STORE_KEY = "allmart_mock_store_v6";
+const STORAGE_STORE_KEY = "allmart_mock_store_v7";
 const STORAGE_CART_KEY = "allmart_cart_v1";
 const STORAGE_BRANCH_KEY = "allmart_active_branch_v1";
 const STORAGE_WISHLIST_KEY = "allmart_wishlist_v1";

@@ -7,7 +7,7 @@ export type MockStore = {
   staff: Staff[];
 };
 
-const branchIds = ["b-bole", "b-kirkos", "b-yeka"] as const satisfies BranchId[];
+const branchIds = ["b-bole", "b-kirkos", "b-yeka", "b-bisrate"] as const satisfies BranchId[];
 
 export const initialBranches: Branch[] = [
   {
@@ -43,13 +43,25 @@ export const initialBranches: Branch[] = [
     lat: 9.0224,
     lng: 38.8772,
   },
+  {
+    id: branchIds[3],
+    name: "All Mart Bisrate Gabriel",
+    city: "Addis Ababa",
+    address: "Bisrate Gabriel · Plus code XPPC+PGW",
+    openHour: 8,
+    closeHour: 20,
+    phone: "099 149 1959",
+    lat: 8.9808,
+    lng: 38.7572,
+  },
 ];
 
-function stock(a: number, b: number, c: number) {
+function stock(a: number, b: number, c: number, d: number) {
   return {
     [branchIds[0]]: a,
     [branchIds[1]]: b,
     [branchIds[2]]: c,
+    [branchIds[3]]: d,
   };
 }
 
@@ -62,7 +74,7 @@ export const initialProducts: Product[] = [
     priceEtb: 12,
     imageUrl: "/images/products/banana.jpg",
     shelfCode: "A1",
-    stockByBranch: stock(18, 12, 0),
+    stockByBranch: stock(18, 12, 0, 10),
     isActive: true,
   },
   {
@@ -73,7 +85,7 @@ export const initialProducts: Product[] = [
     priceEtb: 26,
     imageUrl: "/images/products/apple.jpg",
     shelfCode: "A2",
-    stockByBranch: stock(10, 0, 8),
+    stockByBranch: stock(10, 0, 8, 6),
     isActive: true,
   },
   {
@@ -84,7 +96,7 @@ export const initialProducts: Product[] = [
     priceEtb: 320,
     imageUrl: "/images/products/oil.jpg",
     shelfCode: "B1",
-    stockByBranch: stock(6, 4, 9),
+    stockByBranch: stock(6, 4, 9, 5),
     isActive: true,
   },
   {
@@ -95,7 +107,7 @@ export const initialProducts: Product[] = [
     priceEtb: 210,
     imageUrl: "/images/products/detergent.jpg",
     shelfCode: "C3",
-    stockByBranch: stock(3, 1, 5),
+    stockByBranch: stock(3, 1, 5, 4),
     isActive: true,
   },
   {
@@ -106,7 +118,7 @@ export const initialProducts: Product[] = [
     priceEtb: 385,
     imageUrl: "/images/products/shampoo.jpg",
     shelfCode: "D2",
-    stockByBranch: stock(8, 2, 7),
+    stockByBranch: stock(8, 2, 7, 5),
     isActive: true,
   },
   {
@@ -117,7 +129,7 @@ export const initialProducts: Product[] = [
     priceEtb: 140,
     imageUrl: "/images/products/juice.jpg",
     shelfCode: "E1",
-    stockByBranch: stock(12, 7, 6),
+    stockByBranch: stock(12, 7, 6, 8),
     isActive: true,
   },
   {
@@ -128,7 +140,7 @@ export const initialProducts: Product[] = [
     priceEtb: 25,
     imageUrl: "/images/products/soda.jpg",
     shelfCode: "E2",
-    stockByBranch: stock(20, 15, 11),
+    stockByBranch: stock(20, 15, 11, 14),
     isActive: true,
   },
   {
@@ -139,7 +151,7 @@ export const initialProducts: Product[] = [
     priceEtb: 55,
     imageUrl: "/images/products/chips.jpg",
     shelfCode: "F1",
-    stockByBranch: stock(14, 9, 3),
+    stockByBranch: stock(14, 9, 3, 7),
     isActive: true,
   },
   {
@@ -150,7 +162,7 @@ export const initialProducts: Product[] = [
     priceEtb: 75,
     imageUrl: "/images/products/chocolate.jpg",
     shelfCode: "F2",
-    stockByBranch: stock(9, 6, 2),
+    stockByBranch: stock(9, 6, 2, 5),
     isActive: true,
   },
   {
@@ -161,7 +173,7 @@ export const initialProducts: Product[] = [
     priceEtb: 85,
     imageUrl: "/images/products/bread.jpg",
     shelfCode: "G1",
-    stockByBranch: stock(7, 2, 5),
+    stockByBranch: stock(7, 2, 5, 4),
     isActive: true,
   },
   {
@@ -172,7 +184,7 @@ export const initialProducts: Product[] = [
     priceEtb: 160,
     imageUrl: "/images/products/margarine.jpg",
     shelfCode: "G2",
-    stockByBranch: stock(0, 4, 6),
+    stockByBranch: stock(0, 4, 6, 3),
     isActive: true,
   },
   {
@@ -183,7 +195,7 @@ export const initialProducts: Product[] = [
     priceEtb: 95,
     imageUrl: "/images/products/beans.jpg",
     shelfCode: "B2",
-    stockByBranch: stock(5, 9, 1),
+    stockByBranch: stock(5, 9, 1, 6),
     isActive: true,
   },
 ];
@@ -194,6 +206,7 @@ export const initialStaff: Staff[] = [
   { id: "s-3", name: "Staff C.", roleId: "staff", branchId: branchIds[0], email: "staff@allmart.et" },
   { id: "s-4", name: "Staff D.", roleId: "staff", branchId: branchIds[2], email: "staff2@allmart.et" },
   { id: "s-5", name: "Manager E.", roleId: "manager", branchId: branchIds[0], email: "manager2@allmart.et" },
+  { id: "s-6", name: "Staff F.", roleId: "staff", branchId: branchIds[3], email: "staff3@allmart.et" },
 ];
 
 function daysAgoIso(days: number) {
