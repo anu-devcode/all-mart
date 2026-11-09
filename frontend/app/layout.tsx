@@ -34,7 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </AllMartProvider>
           </CustomerAccountProvider>
         </AuthProvider>
-        <Script src="https://www.anwarhussen.tech/insights-v2.js" data-site="34c28878-d3d1-44bd-b306-42024cb3dbdf" data-exclude-paths="/erp,/account,/checkout,/auth,/login" strategy="afterInteractive" />
+        <Script src="https://www.anwarhussen.tech/insights-v2.js" data-site="34c28878-d3d1-44bd-b306-42024cb3dbdf" data-exclude-paths="/erp,/account,/checkout,/auth,/login,/staff,/signup" strategy="afterInteractive" />
       </body>
     </html>
   );
