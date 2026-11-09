@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
 import { AuthProvider } from "@/components/providers/AuthProvider";
 import { CustomerAccountProvider } from "@/components/providers/CustomerAccountProvider";
 import { AllMartProvider } from "@/components/providers/AllMartProvider";
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </AllMartProvider>
           </CustomerAccountProvider>
         </AuthProvider>
+        <Script src="https://www.anwarhussen.tech/insights-v2.js" data-site="34c28878-d3d1-44bd-b306-42024cb3dbdf" data-exclude-paths="/erp,/account,/checkout,/auth,/login" strategy="afterInteractive" />
       </body>
     </html>
   );

@@ -4,9 +4,9 @@ import { redirect } from "next/navigation";
 export default async function LegacyCustomerSignupRedirect({
   searchParams,
 }: {
-  searchParams: Promise<{ ref?: string }> | { ref?: string };
+  searchParams: Promise<{ ref?: string }>;
 }) {
-  const params = await Promise.resolve(searchParams);
+  const params = await searchParams;
   const ref = params.ref ? `?ref=${encodeURIComponent(params.ref)}` : "";
   redirect(`/account/signup${ref}`);
 }
